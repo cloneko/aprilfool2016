@@ -127,9 +127,9 @@ $(function() {
               }
               if (count === courses.length) {
                 $.get("/data/azrs/comp.txt", function(data) {
-                  return zoo["comp"] = data;
+                  zoo["comp"] = data;
+                  return term.echo(new String("Unlock EXTRA AZRS!!! Let's Type zoo!!!!!"));
                 });
-                term.echo(new String("Unlock EXTRA AZRS!!! Let's Type zoo!!!!!"));
               }
             }
           } else {
