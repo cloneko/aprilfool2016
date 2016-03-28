@@ -72,7 +72,9 @@ $ ->
         else if command.substr(0,3) is 'man' 
           arg = command.split(" ")
           if arg[1] in courses
-            term.echo new String("#{arg[1]}")
+            $.get("/data/md/#{arg[1]}.md",(data) ->
+                term.echo new String("#{data}")
+            )
             if arg[1] in readcourses
             else
               readcourses[arg[1]] = true
