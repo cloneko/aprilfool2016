@@ -90,7 +90,7 @@ $ ->
                 $.get("/data/azrs/comp.txt",(data) ->
                   zoo["comp"] = data
                 )
-                term.echo new String("Let's Type zoo!!!!!")
+                term.echo new String("Unlock EXTRA AZRS!!! Let's Type zoo!!!!!")
           else
             term.error new String('Man error: そのようなコースはありません') 
         else
