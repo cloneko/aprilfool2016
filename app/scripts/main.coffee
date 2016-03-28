@@ -37,6 +37,8 @@ $ ->
                 window.open(commands.twitter.content)
             when 'facebook'
                 window.open(commands.facebook.content)
+            when 'last'
+                window.open(commands.last.content)
             when 'reload'
                 location.reload(true)
             when 'map'
@@ -97,7 +99,7 @@ $ ->
       term.echo ''
     return
   ),
-    greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help\nまずは「help」と入力してEnterを押してください'
+    greetings: 'Welcome To IT-College Okinawa https://www.it-college.ac.jp\nUsage: help\nまずは「help」と入力してEnterを押してください'
     name: 'js_demo'
     height: $(window).height() - 50
     prompt: 'it-college$ '

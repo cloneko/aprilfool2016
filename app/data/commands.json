@@ -6,7 +6,8 @@
     "twitter": {"desc": "view twitter(@itcolleter)", "content":"https://twitter.com/icolletter"},
     "facebook": {"desc": "view Facebook Page", "content":"https://www.facebook.com/ITCOLLEGE"},
     "azrs": {"desc": "auau?", "content":""},
-    "zoo": {"desc": "??", "content":""},
+    "zoo": {"desc": "List of your AZRS", "content":""},
+    "last": {"desc": "20150401", "content":"http://april.it-college.ac.jp/"},
     "reload": {"desc": "Reload this page", "content":""},
     "help": {"desc": "This Message", "content":""},
     "quit": {"desc": "Redirect to it-college.ac.jp", "content":""}

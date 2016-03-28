@@ -56,6 +56,9 @@ $(function() {
           case 'facebook':
             window.open(commands.facebook.content);
             break;
+          case 'last':
+            window.open(commands.last.content);
+            break;
           case 'reload':
             location.reload(true);
             break;
@@ -140,7 +143,7 @@ $(function() {
       term.echo('');
     }
   }), {
-    greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help\nまずは「help」と入力してEnterを押してください',
+    greetings: 'Welcome To IT-College Okinawa https://www.it-college.ac.jp\nUsage: help\nまずは「help」と入力してEnterを押してください',
     name: 'js_demo',
     height: $(window).height() - 50,
     prompt: 'it-college$ '
