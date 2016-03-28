@@ -154,6 +154,13 @@ gulp.task('build', [ 'html', 'images', 'data', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
+gulp.task('publish', ['build'], () => {
+  var s3 = require('gulp-s3');
+  var fs = require('fs');
+  var aws = JSON.parse(fs.readFileSync('./aws.json'));
+  gulp.src('./dist/**').pipe(s3(aws));
+});
+
 gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
