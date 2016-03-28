@@ -69,11 +69,14 @@ $ ->
       else
         if command is "sudo -s" or command is "su -"
           term.set_prompt '⊂ミ⊃＾ω＾ ）⊃# '
+        else if command is "?"
+            for value,index of commands 
+                term.echo new String('* ' + value + ': ' + index.desc)
         else if command.substr(0,3) is 'man' 
           arg = command.split(" ")
           if arg[1] in courses
             $.get("/data/md/#{arg[1]}.md",(data) ->
-                term.echo new String("#{data}")
+                term.echo new String("\n#{data}")
             )
             if arg[1] in readcourses
             else
@@ -94,7 +97,7 @@ $ ->
       term.echo ''
     return
   ),
-    greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help'
+    greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help\nまずは「help」と入力してEnterを押してください'
     name: 'js_demo'
     height: $(window).height() - 50
     prompt: 'it-college$ '

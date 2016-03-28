@@ -103,11 +103,16 @@ $(function() {
       } else {
         if (command === "sudo -s" || command === "su -") {
           term.set_prompt('⊂ミ⊃＾ω＾ ）⊃# ');
+        } else if (command === "?") {
+          for (value in commands) {
+            index = commands[value];
+            term.echo(new String('* ' + value + ': ' + index.desc));
+          }
         } else if (command.substr(0, 3) === 'man') {
           arg = command.split(" ");
           if (ref2 = arg[1], indexOf.call(courses, ref2) >= 0) {
             $.get("/data/md/" + arg[1] + ".md", function(data) {
-              return term.echo(new String("" + data));
+              return term.echo(new String("\n" + data));
             });
             if (ref3 = arg[1], indexOf.call(readcourses, ref3) >= 0) {
 
@@ -135,7 +140,7 @@ $(function() {
       term.echo('');
     }
   }), {
-    greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help',
+    greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help\nまずは「help」と入力してEnterを押してください',
     name: 'js_demo',
     height: $(window).height() - 50,
     prompt: 'it-college$ '
