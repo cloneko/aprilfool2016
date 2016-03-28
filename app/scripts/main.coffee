@@ -1,20 +1,26 @@
 commands = {}
 news = {}
 azrs = []
+courses = {}
+readcourses = {}
+zoo = {}
 $ ->
   $.getJSON('/data/commands.json',(json) ->
     commands = json
+    courses = json.ls.content
     return
   )
   $.getJSON('/data/news.json',(json) ->
     news = json
     return
   )
-  for i in [1..3]
-    $.get('/data/azrs/#{i}.txt',(data) ->
+
+  for i in [1..5]
+    $.get("/data/azrs/#{i}.txt",(data) ->
         azrs.push(data)
     )
   $('#terminal').terminal ((command, term) ->
+    command = command.trim()
     if command != ''
       if command of commands
         switch command
@@ -39,18 +45,55 @@ $ ->
                 term.echo new String('Course list:')
                 for course in commands.ls.content
                     term.echo new String('* ' + course + '\t') 
+            when 'man'
+                console.log(readcourses.length)
+                term.echo new String('Usage: man coursename') 
+                term.echo new String('Example: man networksecurity') 
+                term.echo new String('Course list:')
+                for course in commands.ls.content
+                    term.echo new String('* ' + course + '\t') 
             when 'azrs'
-                term.echo new String(azrs[Math.floor(Math.random() * azrs.length)])
+                index = Math.floor(Math.random() * azrs.length)
+                term.echo new String(azrs[index])
+                zoo[index] = azrs[index]
+            when 'zoo'
+                count = 0
+                for key,aa of zoo
+                  term.echo new String(aa)
+                  term.echo new String("------")
+                  count = count + 1
+                rate = Math.round((count / (azrs.length + 1)) * 100)
+                term.echo new String("コンプ率: #{rate}%") 
             else
                 term.echo new String(commands[command].content)
       else
-        term.error new String('Command Not Found: ' + command)
+        if command is "sudo -s" or command is "su -"
+          term.set_prompt '⊂ミ⊃＾ω＾ ）⊃# '
+        else if command.substr(0,3) is 'man' 
+          arg = command.split(" ")
+          if arg[1] in courses
+            term.echo new String("#{arg[1]}")
+            if arg[1] in readcourses
+            else
+              readcourses[arg[1]] = true
+              count = 0;
+              for i of readcourses
+                count = count + 1
+              if count is courses.length
+                $.get("/data/azrs/comp.txt",(data) ->
+                  zoo["comp"] = data
+                )
+                term.echo new String("Let's Type zoo!!!!!")
+          else
+            term.error new String('Man error: そのようなコースはありません') 
+        else
+          term.error new String('Command Not Found: ' + command)
     else
       term.echo ''
     return
   ),
     greetings: 'Welcome To IT-College Okinawa http://www.it-college.ac.jp\nUsage: help'
     name: 'js_demo'
-    height: $(window).height()
+    height: $(window).height() - 50
     prompt: 'it-college$ '
   return

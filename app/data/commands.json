@@ -1,12 +1,13 @@
 {
     "ls": {"desc": "List of Course","content": ["networksecurity","itspecialist","creator","night","japanese"]},
-    "course [coursename]": {"desc": "Show Course Information", "content":""},
+    "man" : {"desc": "Show Course Information", "content":""},
     "news": {"desc": "Information from IT-College Okinawa", "content":""},
     "map": {"desc": "View Map", "content":"https://goo.gl/maps/GjeVhLxPWSw"},
-    "help": {"desc": "This Message", "content":""},
     "twitter": {"desc": "view twitter(@itcolleter)", "content":"https://twitter.com/icolletter"},
     "facebook": {"desc": "view Facebook Page", "content":"https://www.facebook.com/ITCOLLEGE"},
     "azrs": {"desc": "auau?", "content":""},
+    "zoo": {"desc": "??", "content":""},
     "reload": {"desc": "Reload this page", "content":""},
+    "help": {"desc": "This Message", "content":""},
     "quit": {"desc": "Redirect to it-college.ac.jp", "content":""}
 }
