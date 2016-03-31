@@ -11,3 +11,5 @@ jQuery ->
             window.location.href = "http://20160401.it-college.ac.jp/"
         else
            jQuery("ul.nav-root li:first").after('<li><strong><a href="http://20160401.it-college.ac.jp/" target="_blank">2016/04/01</a></strong></li>') 
+    else
+      console.log("Today is not 0401")
