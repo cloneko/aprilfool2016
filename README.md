@@ -43,3 +43,7 @@ FAQ?(という名の都合のいい話)
 ### そのPythonのようなものとかgulpとかAnsibleのPlaybook怪しい
 
 プルリクください
+
+### UNCODEじゃないですか?
+
+ごめんなさい…
