@@ -70,7 +70,7 @@ $ ->
                 term.echo new String(commands[command].content)
       else
         if command is "sl"
-          term.echo new String("🚅")
+          term.echo new String('[[;;;emoji]🚅]','raw')
         else if command is "sudo -s" or command is "su -"
           term.set_prompt '⊂ミ⊃＾ω＾ ）⊃# '
         else if command is "?"

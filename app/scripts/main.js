@@ -105,7 +105,7 @@ $(function() {
         }
       } else {
         if (command === "sl") {
-          term.echo(new String("🚅"));
+          term.echo(new String('[[;;;emoji]🚅]', 'raw'));
         } else if (command === "sudo -s" || command === "su -") {
           term.set_prompt('⊂ミ⊃＾ω＾ ）⊃# ');
         } else if (command === "?") {
