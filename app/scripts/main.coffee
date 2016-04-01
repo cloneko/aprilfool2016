@@ -70,7 +70,10 @@ $ ->
                 term.echo new String(commands[command].content)
       else
         if command is "sl"
-          term.echo new String('[[;;;emoji]🚅]','raw')
+          train = ["🚅","🚆","🚄","／　 ´・ω)ﾐ"]
+          index = Math.floor(Math.random() * train.length)
+          randtrain = train[index]
+          term.echo(new String("<div class=\"marquee marquee-speed-swift emoji\" data-marquee=\"#{randtrain}\"></div>"), {"raw": true})
         else if command is "sudo -s" or command is "su -"
           term.set_prompt '⊂ミ⊃＾ω＾ ）⊃# '
         else if command is "?"

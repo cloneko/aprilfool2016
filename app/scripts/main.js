@@ -29,7 +29,7 @@ $(function() {
     });
   }
   $('#terminal').terminal((function(command, term) {
-    var aa, arg, count, course, index, k, key, l, len, len1, rate, ref, ref1, ref2, ref3, value;
+    var aa, arg, count, course, index, k, key, l, len, len1, randtrain, rate, ref, ref1, ref2, ref3, train, value;
     command = command.trim();
     if (command !== '') {
       if (command in commands) {
@@ -105,7 +105,12 @@ $(function() {
         }
       } else {
         if (command === "sl") {
-          term.echo(new String('[[;;;emoji]🚅]', 'raw'));
+          train = ["🚅", "🚆", "🚄", "／　 ´・ω)ﾐ"];
+          index = Math.floor(Math.random() * train.length);
+          randtrain = train[index];
+          term.echo(new String("<div class=\"marquee marquee-speed-swift emoji\" data-marquee=\"" + randtrain + "\"></div>"), {
+            "raw": true
+          });
         } else if (command === "sudo -s" || command === "su -") {
           term.set_prompt('⊂ミ⊃＾ω＾ ）⊃# ');
         } else if (command === "?") {

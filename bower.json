@@ -3,7 +3,8 @@
   "private": true,
   "dependencies": {
     "jquery": "~2.1.1",
-    "jquery.terminal": "^0.9.3"
+    "jquery.terminal": "^0.9.3",
+    "html5-marquee": "^0.1.2"
   },
   "devDependencies": {
     "chai": "^3.5.0",
