@@ -69,7 +69,9 @@ $ ->
             else
                 term.echo new String(commands[command].content)
       else
-        if command is "sudo -s" or command is "su -"
+        if command is "sl"
+          term.echo new String("🚅")
+        else if command is "sudo -s" or command is "su -"
           term.set_prompt '⊂ミ⊃＾ω＾ ）⊃# '
         else if command is "?"
             for value,index of commands 

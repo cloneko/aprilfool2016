@@ -104,7 +104,9 @@ $(function() {
             term.echo(new String(commands[command].content));
         }
       } else {
-        if (command === "sudo -s" || command === "su -") {
+        if (command === "sl") {
+          term.echo(new String("🚅"));
+        } else if (command === "sudo -s" || command === "su -") {
           term.set_prompt('⊂ミ⊃＾ω＾ ）⊃# ');
         } else if (command === "?") {
           for (value in commands) {
